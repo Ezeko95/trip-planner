@@ -1,7 +1,11 @@
 const Auth = () => {
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex flex-1 min-h-full flex-col justify-center px-6 py-16 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="flex flex-col justify-center items-center my-10">
+          <h1 className="text-2xl">Welcome to Voyago</h1>
+          <h3 className="text-xl">Plan your next trip!</h3>
+        </div>
         <img className="mx-auto h-10 w-auto" src="/logo.png" alt="Voyago" />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
           Sign in to your account
@@ -13,7 +17,7 @@ const Auth = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium leading-6 text-gray-900"
+              className="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
             >
               Email address
             </label>
@@ -33,7 +37,7 @@ const Auth = () => {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-900 dark:text-white"
               >
                 Password
               </label>

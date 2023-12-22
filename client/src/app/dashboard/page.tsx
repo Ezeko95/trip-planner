@@ -1,11 +1,10 @@
-import Map from "../components/Map";
-import SimpleMap from "../components/GoogleMap";
+import Dashboard from "./Dashboard";
 
-const Page: React.FC<{}> = () => {
+const Page: React.FC = () => {
   return (
-    <div>
-      <SimpleMap />
-    </div>
+    <>
+      <Dashboard />
+    </>
   );
 };
 

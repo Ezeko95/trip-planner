@@ -2,7 +2,7 @@ import Auth from "./Auth";
 
 const DashboardPage = () => {
   return (
-    <div>
+    <div className="h-full">
       <Auth />
     </div>
   );
