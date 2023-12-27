@@ -1,43 +1,41 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
-import Marker from "./Marker";
-
-const AnyReactComponent = ({
-  text,
-  lat,
-  lng,
-}: {
-  text: string;
-  lat: number;
-  lng: number;
-}) => (
-  <div>
-    <h1>{text}</h1>
-  </div>
-);
 
 const SimpleMap: React.FC = () => {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        setLatitude(latitude);
+        setLongitude(longitude);
+      });
+      console.log(navigator.geolocation);
+    }
+  }, []);
   const defaultProps = {
     center: {
-      lat: 52.04212930250919,
-      lng: -2.184102102306775,
+      lat: latitude,
+      lng: longitude,
     },
     zoom: 11,
   };
+  const mapStyles: React.CSSProperties = {
+    position: "fixed",
+    width: "100%",
+    height: "90%",
+  };
 
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <div style={mapStyles}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: `${apiKey}` }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
-      >
-        <Marker
-          text="My Marker"
-        />
-      </GoogleMapReact>
+      ></GoogleMapReact>
     </div>
   );
 };
